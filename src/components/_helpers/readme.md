@@ -19,12 +19,5 @@ If your project has individual queries (SQL, GraphQL, an API), you can also stor
 - `handleProfileFormSubmission.ts`
 - `goToHomepage.ts`
 
-### Some Verb suggestions
-- handle
-- get
-- set
-- parse
-- goTo
-
 ## Intent
 We want to make our code more reusable, and easier to infer functionality from the file name. We hope that following a naming scheme will make it more likely that we will not create duplicate functionality.
