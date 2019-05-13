@@ -3,14 +3,10 @@
 ## Usage
 Individual files with one function contained within them, each. Managing data, sharing hook logic, and making callbacks
 
-If your project has individual queries (SQL, GraphQL, an API), you can also store the 
+If your project has individual queries (SQL, GraphQL, an API), you can also store them here in `queries`, `data`, etc- folders
 
 ## Naming Scheme
-`./{verb}{identifier}{descriptor}.{t|j}s`
-
-- `verb` is used to describe the type of action your function will take
-- `identifier` is used to say what your verb will act upon
-- `descriptor` (optional) is used to give more specification to your verb and identifier.
+`./{verb}/{see folder naming rules}.{t|j}s`
 
 ### Examples
 - `queryUserDetails.js`
