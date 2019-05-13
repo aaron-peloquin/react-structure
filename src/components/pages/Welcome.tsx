@@ -5,20 +5,29 @@ interface objUser {
   permission: boolean,
 }
 
-const Welcome: React.SFC<{
+// `React.SFC` is a "Stateless Functional Component" interface
+const Welcome: React.SFC<{ // This object defines our prop types
   name?: string,
-  other?: string,
+  message?: string,
   user: {
     id: number,
     permission: boolean,
-    optional?: string,
+    displayName?: string,
   },
- }> = ({
+ }> = ({ // This object is deconstructed into our variables we can use within the component
   name,
-  other = 'have a nice day',
-  user,
+  message = 'Have a nice day',
+  user: {
+    id,
+    ...otherUserKeys
+  },
 }) => {
- return <h1>Welcome back, {name || `#00${user.id}`}.. {other}</h1>
+ return <React.Fragment>
+   <h1>Welcome back, {name || `User #${id.toString().padStart(2, '0')}`}..</h1>
+   <p>
+    {message}, {otherUserKeys.displayName}.<br />
+    You do {otherUserKeys.permission && <strong>not </strong>}have permission.</p>
+ </React.Fragment>
 }
 
-export default Welcome
+export default React.memo(Welcome)
