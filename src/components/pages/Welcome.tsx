@@ -5,15 +5,20 @@ interface objUser {
   permission: boolean,
 }
 
-interface props {
- name?: string,
- user: objUser,
-}
-const Welcome: React.SFC<props> = ({
+const Welcome: React.SFC<{
+  name?: string,
+  other?: string,
+  user: {
+    id: number,
+    permission: boolean,
+    optional?: string,
+  },
+ }> = ({
   name,
+  other = 'have a nice day',
   user,
 }) => {
- return <h1>Welcome back, {name || `#00${user.id}`}.</h1>
+ return <h1>Welcome back, {name || `#00${user.id}`}.. {other}</h1>
 }
 
 export default Welcome
