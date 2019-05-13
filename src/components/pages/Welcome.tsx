@@ -19,7 +19,7 @@ const Welcome: React.SFC<{ // This object defines our prop types
   message = 'Have a nice day',
   user: {
     id,
-    ...otherUserKeys
+    ...otherUserKeys // See below where we are accessing `displayName` and `permission`
   },
 }) => {
  return <React.Fragment>
