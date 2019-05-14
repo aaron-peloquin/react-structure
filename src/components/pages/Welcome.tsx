@@ -27,11 +27,8 @@ const Welcome: React.SFC<{ // This object defines our prop types
     id: number,
     permission: boolean,
     displayName?: string,
-    invisibleProps?: {
-      doesNotCauseReRender: boolean,
-    }
   },
- }> = ({ // This object is deconstructed into our variables we can use within the component
+}> = ({ // This object is deconstructed into our variables we can use within the component
   name,
   message = 'Have a nice day',
   user: {
@@ -39,14 +36,15 @@ const Welcome: React.SFC<{ // This object defines our prop types
     ...otherUserKeys
   },
 }) => {
+  console.log('Welcome is Rendering...')
   // Note for `otherUserKeys`
   // This will catch all remaining keys that were not already destructured and throw them into this object.
-  // Function components will only shallow compare when deciding if it should re-render, so changing `doesNotCauseReRender` does not trigger a new render of this component.
- return <React.Fragment>
-   <h1>Welcome back, {name || `User #${id.toString().padStart(2, '0')}`}..</h1>
-   <p>
-    {message}, {otherUserKeys.displayName}.<br />
-    You do {otherUserKeys.permission && <strong>not </strong>}have permission.</p>
+  return <React.Fragment>
+    <h1>Welcome back, {name || `User #${id.toString().padStart(2, '0')}`}..</h1>
+    <p>
+      {message}, {otherUserKeys.displayName}.<br />
+      You do {otherUserKeys.permission && <strong>not </strong>}have permission.<br />
+    </p>
  </React.Fragment>
 }
 
