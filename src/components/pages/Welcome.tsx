@@ -28,17 +28,16 @@ const Welcome: React.SFC<{ // This object defines our prop types
     permission: boolean,
     displayName?: string,
   },
+  invisibleProp: any,
 }> = ({ // This object is deconstructed into our variables we can use within the component
   name,
   message = 'Have a nice day',
   user: {
     id,
-    ...otherUserKeys
+    ...otherUserKeys // This ... syntax is the `rest pattern`. It will catch all keys that were not deconstructed from the user object (permission & displayName), and assign them into `otherUserKeys`
   },
+  // Note: The prop `invisibleProp` is not deconstructed or caught by a a restructuring (...), so it is essentially unavaible and ignored, even though its required by the interface - don't do this.
 }) => {
-  console.log('Welcome is Rendering...')
-  // Note for `otherUserKeys`
-  // This will catch all remaining keys that were not already destructured and throw them into this object.
   return <React.Fragment>
     <h1>Welcome back, {name || `User #${id.toString().padStart(2, '0')}`}..</h1>
     <p>

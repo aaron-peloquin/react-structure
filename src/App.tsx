@@ -10,10 +10,8 @@ const App: React.FC = () => {
     user: {
       id: 5,
       permission: true,
-      invisibleProps: {
-        doesNotCauseReRender: badNumber
-      },
     },
+    invisibleProp: ['foo', 'bar']
   }
 
   return (<React.Fragment>
