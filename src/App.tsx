@@ -3,26 +3,33 @@ import './App.css';
 
 import Welcome from './components/pages/Welcome'
 
+let sneakyData = 5
+const user = {
+  id: 5,
+  permission: true,
+  invisibleProp: sneakyData
+}
+
 const App: React.FC = () => {
   const [badNumber, setBadNumber] = React.useState(999)
-  const welcomeProps = {
-    name: 'Aaron',
-    user: {
-      id: 5,
-      permission: true,
-    },
-    invisibleProp: ['foo', 'bar']
+  sneakyData = badNumber
+
+  const updateNumber = () => {
+    const number = Math.ceil(Math.random()*500)
+    setBadNumber(number)
   }
 
+  console.log('Rendering <App /> with', badNumber)
+
   return (<React.Fragment>
-    <button onClick={()=>{
-      const number = Math.ceil(Math.random()*500)
-      console.log({number})
-      setBadNumber(number)
-    }}>New Number</button>
+    <button onClick={updateNumber}>New Number</button>
     <p>Number is: {badNumber}</p>
-    <Welcome {...welcomeProps} />
+    <Welcome
+      name="Aaron"
+      user={user}
+      
+    />
   </React.Fragment>)
 }
 
-export default App
+export default React.memo(App)
