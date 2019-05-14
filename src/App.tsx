@@ -3,6 +3,7 @@ import './App.css';
 
 import Welcome from './components/pages/Welcome'
 
+// Bad pattern of having let outside of component and mutating inside. Props are not passed down to trigger a re-render
 let sneakyData = 5
 const user = {
   id: 5,
