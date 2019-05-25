@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Tiny from './../atoms/Tiny'
+import Tiny from "./../atoms/Tiny"
 
 interface objUser {
   id: number,
